@@ -1,0 +1,18 @@
+.slick-slide {
+  display: table !important;
+}
+
+.slick-slide > div {
+  height: 100px !important;
+  display: table-cell !important;
+  vertical-align: middle !important;
+}
+
+.slick-slide img {
+  width: 100px;
+  margin: auto;
+}
+.slick-prev:before, .slick-next:before {
+
+  color: #3badff
+}

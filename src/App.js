@@ -1,28 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { createBrowserHistory } from "history";
+import { Router, Route, Switch } from "react-router";
+import indexRoutes from "routes/index.jsx";
+import { ParallaxProvider } from 'react-scroll-parallax';
+var hist = createBrowserHistory();
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+function MyApp() {
+  return (
+    <React.Fragment>
+      <CssBaseline/>
+    <ParallaxProvider>
+    <Router history={hist}>
+    <Switch>
+      {indexRoutes.map((prop, index) => {
+        return <Route key={index.toString()} exact path={prop.path}  component={prop.component} />;
+      })}
+    </Switch>
+  </Router>
+  </ParallaxProvider>
+    </React.Fragment>
+
+  );
 }
 
-export default App;
+export default MyApp;
